@@ -366,8 +366,7 @@
         .dark-overlay:hover .overlay-text {
             opacity: 0;
         }
-
-         .animatt {
+        .animatt {
             animation: fadeIn 1s ease-in-out;
 
         }
@@ -379,9 +378,12 @@
                 opacity: 1;
             }
         }
+        * {
+            box-sizing: border-box;
+        }
     </style>
 </head>
-<body class="animatt">
+<body class="animatt overflow-x-hidden ">
 
 <!-- Навигация -->
 <div  class="bg-white z-20 w-full h-12  flex items-center justify-between px-4 text-blue-600 fixed shadow-md">
@@ -619,9 +621,9 @@
     <div>
         <p class='text-xl font-medium mb-3 text-white'>КОМПАНИЯ</p>
         <ul class='flex flex-col gap-2 text-white'>
-            <a class='text-white hover:no-underline' href='/'>Главная страница</a>
-            <a class='text-white hover:no-underline' href='/about'>О нас</a>
-            <a class='text-white hover:no-underline' href='/contact'>Свяжитесь с нами</a>
+            <a class='text-white hover:no-underline' href='#home'>Главная страница</a>
+            <a class='text-white hover:no-underline' href='#about'>О нас</a>
+            <a class='text-white hover:no-underline' href='#footer'>Свяжитесь с нами</a>
             <a class='text-white hover:no-underline' href='https://kvantoriumtomsk.ru/educationalorganization'> Политика сайта</a>
         </ul>
         <div class="flex items-center justify-between px-6 gap-4">
@@ -669,6 +671,11 @@
 </div>
 
 <script>
+
+    setTimeout(() => {
+        body.classList.add('opacity-1')
+    }, 1000)
+
     const images = document.querySelectorAll('.gallery-item'); // Все картинки с классом gallery-item
     const lightbox = document.getElementById('lightbox'); // Ваш lightbox
     const lightboxImg = document.getElementById('lightbox-img'); // Изображение внутри lightbox
