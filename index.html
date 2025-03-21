@@ -402,7 +402,7 @@
         <p class="text-4xl text-blue-600 mb-4">Кванто-маркет</p>
         <hr>
         Лучший магазин <span class="text-blue-600">кванториума</span>
-        <img class="absolute right-[-60px] bottom-[-40px]" src="sktech.svg"  alt="">
+        <img class="absolute right-[-30px] sm:right-[-60px] bottom-[-40px]" src="sktech.svg"  alt="">
     </div>
 
 </div>
@@ -418,7 +418,7 @@
                 <span class="text-pink-500">онлайн шопов</span></h1>
             <p class="text-white mt-8 text-left w-[100%] sm:w-[70%]">Долгое время с любовью стремимся стать лучшим онлайн магазином <span class="text-pink-600 font-semibold">кванториума</span></p>
         </div>
-        <canvas class="absolute top-0 bottom-0" id="canvas"></canvas>
+        <canvas  class="absolute top-0 bottom-0 " id="canvas"></canvas>
     </div>
 </div>
 <div  class="w-full text-center items-center flex  justify-center gap-4 mt-8">
@@ -721,11 +721,26 @@
     });
 
 
-
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
-    canvas.width = 900;
-    canvas.height = 330;
+
+
+
+    function resizeCanvas() {
+        // Устанавливаем ширину канваса, ограниченную максимум 900px
+        canvas.width = Math.min(window.innerWidth, 900);
+
+        // Устанавливаем высоту канваса, равную высоте экрана
+        canvas.height = 330;
+    }
+
+    // Вызываем функцию при загрузке страницы
+    resizeCanvas();
+
+    // Обновляем размеры при изменении окна
+    window.addEventListener("resize", resizeCanvas);
+
+
 
     class Ball {
         constructor(x, y, radius, dx, dy, color) {
